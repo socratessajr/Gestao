@@ -1,0 +1,39 @@
+<h2>Produtos</h2>
+<hr>
+<div class="form-inline">
+  <div class="form-group mb-2">
+    <label class="mr-2">Filtro: </label>
+    <input type="text"
+      class="form-control mr-2"
+      placeholder="Buscar"
+      [(ngModel)]="filtroLista"
+    >
+    </div>
+</div>
+<table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th width="15%">Id</th>
+      <th width="40%">Nome</th>
+      <th width="25%">Contato</th>
+      <th width="20%"></th>
+    </tr>
+  </thead>
+  <tbody *ngIf="costumers && costumers.length > 0">
+    <tr *ngFor="let costumer of costumersFiltered">
+      <td>{{costumer.id}}</td>
+      <td>{{costumer.nome}}</td>
+      <td>{{costumer.contato}}</td>
+      <td>
+        <button class="btn btn-primary mr-2">Editar</button>
+        <button class="btn btn-danger">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+  <tfoot *ngIf="costumers == null || costumers.length == 0">
+    <tr>
+      <td colspan="4" class="text-center">Nenhum cliente encontrado...</td>
+    </tr>
+  </tfoot>
+</table>
+
